@@ -24,14 +24,20 @@ repositories {
 }
 
 dependencies {
+	
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	annotationProcessor 'org.projectlombok:lombok' 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	// JUnit 5, AssertJ, Mockito를 이미 포함하고 있음 
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	 // MySQL JDBC 드라이버
+    implementation 'mysql:mysql-connector-java:8.0.21'	
 }
 
 tasks.named('test') {
