@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/sign-up")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         return ResponseEntity.ok(userService.createUser(user));
-    }
+    }  
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
