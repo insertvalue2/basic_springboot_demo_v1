@@ -1,5 +1,7 @@
 package com.tenco.demo1.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.tenco.demo1.model.User;
@@ -27,5 +29,10 @@ public class UserService {
     	// 즉, User 반환 하거나 예외를 던지거나 !! 
         return userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    }
+    
+    public List<User> getAllUsers() {
+    	List<User> users = userRepository.findAll();
+    	return users;
     }
 }

@@ -1,5 +1,7 @@
 package com.tenco.demo1.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +29,13 @@ public class UserController {
     }  
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
+    public ResponseEntity<User> getUser(@PathVariable(name ="id") Long id) {
+    	System.out.println("동작확인");
         return ResponseEntity.ok(userService.getUserById(id));
+    }
+    
+    @GetMapping("/list")
+    public List<User> getAllMembers() {
+    	return userService.getAllUsers();
     }
 }
